@@ -16,7 +16,7 @@ const IconContainer = ({ icon, label }: IconContainerProps) => (
 
 const Footer = () => {
     return (
-        <div className="h-[60px] w-full flex justify-around items-center bg-zinc-100">
+        <div className="min-h-[50px] w-full flex justify-around items-center bg-zinc-100">
             <IconContainer icon={faHome} label="Home" />
             <IconContainer icon={faAngleDoubleUp} label="Scroll Up" />
             <IconContainer icon={faBell} label="Notifications" />
