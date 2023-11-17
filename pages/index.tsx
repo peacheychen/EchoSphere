@@ -2,10 +2,17 @@ import Footer from '@/components/Footer'
 import CommentBar from '@/components/WriteComment/CommentBar'
 import CommentFilter from '@/components/Comment/CommentFilter'
 import Comment from '@/components/Comment/Comment'
+import Podcast from '@/components/Podcast/Podcast'
 import Header from '@/components/Header'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const podcast = {
+  title: 'The Worlds She Sees with Godmother of AI, Fei-Fei Li',
+  description: 'Fei-Fei Li, PhD, Professor in the Computer Science Department at Stanford University, and Co-Director of Stanford’s Human-Centered AI Institute, joins Bio + Health founding par...',
+  image: 'https://cdn.player.fm/images/25004263/series/Eo3iU8rNU8jESRv4/512.jpg'
+}
 
 export default function Home() {
   return (
@@ -13,7 +20,12 @@ export default function Home() {
       className={`flex flex-col items-center justify-between h-[600px] w-[400px] ${inter.className}`}
     >
       <Header />
-      <main className='min-h-[420px] w-full overflow-scroll p-2'>
+      <main className=' w-full overflow-scroll p-2'>
+        <Podcast
+          title={podcast.title}
+          description={podcast.description}
+          image={podcast.image}
+        />
         <CommentFilter />
         <Comment
           username="user1"
@@ -40,6 +52,6 @@ export default function Home() {
       </main>
       <CommentBar />
       <Footer />
-    </div>
+    </div >
   )
 }
