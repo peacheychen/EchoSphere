@@ -2,6 +2,7 @@ import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontaw
 import { IconDefinition, faHome } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDoubleUp } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/router";
 
 type IconContainerProps = {
     icon: IconDefinition;
@@ -15,9 +16,17 @@ const IconContainer = ({ icon, label }: IconContainerProps) => (
 );
 
 const Footer = () => {
+    const router = useRouter();
+
+    const navigateToUserHome = () => {
+        router.push('/'); // Replace '/userhome' with the actual path to your UserHome page
+    }
+
     return (
         <div className="min-h-[50px] w-full flex justify-around items-center bg-zinc-100">
-            <IconContainer icon={faHome} label="Home" />
+            <div onClick={navigateToUserHome}>
+                <IconContainer icon={faHome} label="Home" />
+            </div>
             <IconContainer icon={faAngleDoubleUp} label="Scroll Up" />
             <IconContainer icon={faBell} label="Notifications" />
         </div>

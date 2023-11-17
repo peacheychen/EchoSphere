@@ -3,6 +3,16 @@
   "description": "EchoSphere is a Chrome extension that allows you to create comment towards any RSS podcast episode from any podcast player.",
   "version": "0.0.1",
   "manifest_version": 3,
+  "permissions": ["tabs", "activeTab", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';",
     "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
