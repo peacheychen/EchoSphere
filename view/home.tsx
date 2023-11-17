@@ -14,11 +14,9 @@ const podcast = {
     image: 'https://cdn.player.fm/images/25004263/series/Eo3iU8rNU8jESRv4/512.jpg'
 }
 
-export default function UserHome() {
+export default function UserHome({ navigateToPage }: { navigateToPage: (page: React.SetStateAction<string>) => void }) {
     return (
-        <div
-            className={`flex flex-col items-center justify-between h-[600px] w-[400px] ${inter.className}`}
-        >
+        <>
             <Header />
             <main className=' w-full overflow-scroll p-2'>
                 <Podcast
@@ -52,6 +50,6 @@ export default function UserHome() {
             </main>
             <CommentBar />
             <Footer />
-        </div >
+        </>
     )
 }

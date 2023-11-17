@@ -1,40 +1,18 @@
-import React, { useState, useEffect } from 'react';
-
-import { Button } from '@/components/ui/button'
-import WalletConnectButton from '../components/Web3Modal'
-import WorldCoinButton from '../components/WorldCoinButton'
-import { useRouter } from 'next/router'
+import React, { useState } from 'react';
+import UserHome from '../view/home';
+import Login from '../view/login';
 
 export default function Home() {
-  const [currentSite, setCurrentSite] = useState('');
-  const [activePage, setActivePage] = useState('index');
+  const [activePage, setActivePage] = useState('Login');
 
-  const router = useRouter();
-
-  const [url, setUrl] = useState<string>('');
-  const [logo, setLogo] = useState<string>('');
-  const [title, setTitle] = useState<string>('');
-  useEffect(() => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      console.log(tabs);
-      setUrl(tabs?.[0].url || '');
-      setLogo(tabs?.[0].favIconUrl || '');
-      setTitle(tabs?.[0].title || '');
-    });
-  }, []);
-
-  const navigateToUserHome = () => {
-    router.push('/main'); // Replace '/userhome' with the actual path to your UserHome page
+  const navigateToPage = (page: React.SetStateAction<string>) => {
+    setActivePage(page);
   };
 
   return (
-    <div className="w-[400px] h-[600px] flex flex-col items-center justify-center gap-4 bg-gray-200">
-      <WalletConnectButton />
-      <WorldCoinButton />
-
-      <Button onClick={navigateToUserHome}>
-        test {url}
-      </Button>
+    <div className="h-[600px] w-[400px]">
+      {activePage === 'UserHome' && <UserHome navigateToPage={navigateToPage} />}
+      {activePage === 'Login' && <Login navigateToPage={navigateToPage} />}
     </div>
   );
 }
