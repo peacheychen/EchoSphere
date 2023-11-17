@@ -7,9 +7,9 @@ import {
     DialogClose,
     DialogTitle,
 } from "@/components/ui/dialog"
-import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
+import Toolbar from "./Toolbar";
 
 // TODO: Add a comment modal
 const CommentModal = () => {
@@ -29,7 +29,8 @@ const CommentModal = () => {
                     <DialogTitle className="text-left">Create Post</DialogTitle>
                 </DialogHeader>
                 <div className="flex items-left space-x-2">
-                    <div className="grid flex-1 gap-2">
+                    <div className="grid flex-1">
+                        <Toolbar />
                         <Textarea
                             onChange={(e) => setComment(e.target.value)}
                             value={comment}
