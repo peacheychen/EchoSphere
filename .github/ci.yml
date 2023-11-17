@@ -1,0 +1,26 @@
+name: CI/CD for EchoSphere 
+
+on:
+  push:
+    branches:
+      - add-ci  # Change this to your default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21  # Adjust the Node.js version as needed
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Build React App
+        run: yarn build:extension
+
