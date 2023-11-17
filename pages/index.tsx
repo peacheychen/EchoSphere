@@ -1,57 +1,12 @@
-import Footer from '@/components/Footer'
-import CommentBar from '@/components/WriteComment/CommentBar'
-import CommentFilter from '@/components/Comment/CommentFilter'
-import Comment from '@/components/Comment/Comment'
-import Podcast from '@/components/Podcast/Podcast'
-import Header from '@/components/Header'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
-
-const podcast = {
-  title: 'The Worlds She Sees with Godmother of AI, Fei-Fei Li',
-  description: 'Fei-Fei Li, PhD, Professor in the Computer Science Department at Stanford University, and Co-Director of Stanford’s Human-Centered AI Institute, joins Bio + Health founding par...',
-  image: 'https://cdn.player.fm/images/25004263/series/Eo3iU8rNU8jESRv4/512.jpg'
-}
+import WalletConnectButton from '../components/Web3Modal'
 
 export default function Home() {
   return (
-    <div
-      className={`flex flex-col items-center justify-between h-[600px] w-[400px] ${inter.className}`}
-    >
-      <Header />
-      <main className=' w-full overflow-scroll p-2'>
-        <Podcast
-          title={podcast.title}
-          description={podcast.description}
-          image={podcast.image}
-        />
-        <CommentFilter />
-        <Comment
-          username="user1"
-          commentText="This is a comment from user1."
-          avatarSrc="/placeholder-user.jpg"
-        />
-
-        <Comment
-          username="user2"
-          commentText="This is a comment from user2."
-          avatarSrc="/placeholder-user2.jpg"
-        />
-        <Comment
-          username="user2"
-          commentText="This is a comment from user2."
-          avatarSrc="/placeholder-user2.jpg"
-        />
-        <Comment
-          username="user2"
-          commentText="This is a comment from user2."
-          avatarSrc="/placeholder-user2.jpg"
-        />
-
-      </main>
-      <CommentBar />
-      <Footer />
-    </div >
+    <div className="w-[400px] h-[600px] flex flex-col items-center justify-center gap-4 bg-gray-200">
+      <WalletConnectButton />
+      <button className="px-6 py-3 bg-green-500 text-white font-semibold rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300">
+        Button 2
+      </button>
+    </div>
   )
 }
