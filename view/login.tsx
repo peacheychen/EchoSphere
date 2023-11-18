@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import { Button } from '@/components/ui/button'
-import WalletConnectButton from '../components/Web3Modal'
-import WorldCoinButton from '../components/WorldCoinButton'
+import WalletConnectButton from '../components/Login/Web3Modal'
+import WorldCoinButton from '../components/Login/WorldCoinButton'
 import { useRouter } from 'next/router'
-import { getActiveTabURL } from '../util/getCurrentTab'
 
 export default function Login({ navigateToPage }: { navigateToPage: (page: React.SetStateAction<string>) => void }) {
     const [currentSite, setCurrentSite] = useState('');

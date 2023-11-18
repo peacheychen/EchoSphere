@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "target": "es2017",
+    
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
+    "noImplicitAny": false,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
@@ -17,6 +19,12 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "extension/content.js", "extension/background.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "extension/content.ts",
+    "extension/background.ts"
+  ],
   "exclude": ["node_modules"]
 }
