@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    
+    "sourceMap": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "noImplicitAny": false,
@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "extension/content.ts",
+    "extension/content.js",
     "extension/background.ts"
   ],
   "exclude": ["node_modules"]
