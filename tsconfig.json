@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "extension/content.js",
+    "extension/content-script.js",
     "extension/background.ts"
   ],
   "exclude": ["node_modules"]

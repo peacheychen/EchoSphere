@@ -46,11 +46,9 @@ export default function Login({ navigateToPage }: { navigateToPage: (page: React
     };
     const logDomElements = () => {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-            // @ts-ignore
-            chrome.tabs.sendMessage(tabs?.[0].id, { command: "logSpans" }, (response) => {
-                console.log("Number of spans:", response);
-            });
-        });
+            console.log(tabs)
+            chrome.runtime.sendMessage({ action: "logDomElements", tabId: tabs[0].id });
+        })
     };
 
     return (

@@ -1,7 +1,18 @@
-console.log("Service Worker 👋");
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.title) {
-    console.log("Received title from active tab:", message.title);
-    // You can further process the title here
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.action === "logDomElements") {
+    try {
+      console.log("background.js");
+      chrome.scripting
+        .executeScript({
+          target: { tabId: message.tabId },
+          files: ["content.js"],
+        })
+        .then(() => {
+          console.log("background.js");
+        });
+      console.log("background.js");
+    } catch (error) {
+      console.error("Error executing script:", error);
+    }
   }
 });
