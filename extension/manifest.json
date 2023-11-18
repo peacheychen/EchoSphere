@@ -7,9 +7,15 @@
   "background": {
     "service_worker": "background.js"
   },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
   "web_accessible_resources": [
     {
-      "resources": ["index.html"],
+      "resources": ["public/*", "assets/*"],
       "matches": ["<all_urls>"]
     }
   ],

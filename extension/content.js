@@ -1,9 +1,5 @@
-chrome.runtime.onInstalled.addListener(() => {
-  console.log("Extension installed");
-});
+const pageTitle = document.title;
 
-chrome.runtime.onStartup.addListener(() => {
-  console.log("Extension started");
+chrome.runtime.sendMessage({ title: "ttt" }, function (response) {
+  console.log("response", response);
 });
-chrome.runtime.getURL("images/sudoswap.png");
-console.log("Background script loaded");
